@@ -1,0 +1,106 @@
+{
+  "game_id": "cf2c1524-eb44-4daa-b3b0-f5a47fb94919",
+  "events": [
+    {
+      "timestamp": "2025-11-03T17:03:24.682621",
+      "type": "game_start",
+      "data": {
+        "players": [
+          {
+            "player_id": 1,
+            "name": "玩家1",
+            "color": "#ef4444",
+            "is_ai": false,
+            "resources": {
+              "wood": 4,
+              "brick": 4,
+              "sheep": 2,
+              "wheat": 2,
+              "ore": 2
+            },
+            "resource_count": 14,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          },
+          {
+            "player_id": 2,
+            "name": "玩家2",
+            "color": "#3b82f6",
+            "is_ai": false,
+            "resources": {
+              "wood": 4,
+              "brick": 4,
+              "sheep": 2,
+              "wheat": 2,
+              "ore": 2
+            },
+            "resource_count": 14,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          },
+          {
+            "player_id": 3,
+            "name": "AI对手1",
+            "color": "#10b981",
+            "is_ai": true,
+            "resources": {
+              "wood": 4,
+              "brick": 4,
+              "sheep": 2,
+              "wheat": 2,
+              "ore": 2
+            },
+            "resource_count": 14,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          },
+          {
+            "player_id": 4,
+            "name": "AI对手2",
+            "color": "#f59e0b",
+            "is_ai": true,
+            "resources": {
+              "wood": 4,
+              "brick": 4,
+              "sheep": 2,
+              "wheat": 2,
+              "ore": 2
+            },
+            "resource_count": 14,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          }
+        ],
+        "map_seed": 0
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:03:27.998978",
+      "type": "turn_end",
+      "data": {
+        "player_id": 1,
+        "round_number": 1
+      }
+    }
+  ]
+}

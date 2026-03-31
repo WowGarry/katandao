@@ -1,0 +1,102 @@
+{
+  "game_id": "d79a12e6-63a0-4844-9565-8e85fd6cdffa",
+  "events": [
+    {
+      "timestamp": "2025-10-27T20:00:38.798045",
+      "type": "game_start",
+      "data": {
+        "players": [
+          {
+            "player_id": 1,
+            "name": "玩家1",
+            "color": "#ef4444",
+            "resources": {
+              "wood": 0,
+              "brick": 0,
+              "sheep": 0,
+              "wheat": 0,
+              "ore": 0
+            },
+            "resource_count": 0,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          },
+          {
+            "player_id": 2,
+            "name": "玩家2",
+            "color": "#3b82f6",
+            "resources": {
+              "wood": 0,
+              "brick": 0,
+              "sheep": 0,
+              "wheat": 0,
+              "ore": 0
+            },
+            "resource_count": 0,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          },
+          {
+            "player_id": 3,
+            "name": "玩家3",
+            "color": "#10b981",
+            "resources": {
+              "wood": 0,
+              "brick": 0,
+              "sheep": 0,
+              "wheat": 0,
+              "ore": 0
+            },
+            "resource_count": 0,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          },
+          {
+            "player_id": 4,
+            "name": "玩家4",
+            "color": "#f59e0b",
+            "resources": {
+              "wood": 0,
+              "brick": 0,
+              "sheep": 0,
+              "wheat": 0,
+              "ore": 0
+            },
+            "resource_count": 0,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          }
+        ],
+        "map_seed": 0
+      }
+    },
+    {
+      "timestamp": "2025-10-27T20:01:59.324339",
+      "type": "turn_end",
+      "data": {
+        "player_id": 1,
+        "round_number": 0
+      }
+    }
+  ]
+}

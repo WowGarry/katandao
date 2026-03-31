@@ -1,0 +1,194 @@
+{
+  "game_id": "86b0d9d9-4487-418d-9f8d-0c437096b4c2",
+  "events": [
+    {
+      "timestamp": "2025-10-27T20:22:47.794283",
+      "type": "game_start",
+      "data": {
+        "players": [
+          {
+            "player_id": 1,
+            "name": "玩家1",
+            "color": "#ef4444",
+            "resources": {
+              "wood": 0,
+              "brick": 0,
+              "sheep": 0,
+              "wheat": 0,
+              "ore": 0
+            },
+            "resource_count": 0,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          },
+          {
+            "player_id": 2,
+            "name": "玩家2",
+            "color": "#3b82f6",
+            "resources": {
+              "wood": 0,
+              "brick": 0,
+              "sheep": 0,
+              "wheat": 0,
+              "ore": 0
+            },
+            "resource_count": 0,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          },
+          {
+            "player_id": 3,
+            "name": "玩家3",
+            "color": "#10b981",
+            "resources": {
+              "wood": 0,
+              "brick": 0,
+              "sheep": 0,
+              "wheat": 0,
+              "ore": 0
+            },
+            "resource_count": 0,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          },
+          {
+            "player_id": 4,
+            "name": "玩家4",
+            "color": "#f59e0b",
+            "resources": {
+              "wood": 0,
+              "brick": 0,
+              "sheep": 0,
+              "wheat": 0,
+              "ore": 0
+            },
+            "resource_count": 0,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          }
+        ],
+        "map_seed": 0
+      }
+    },
+    {
+      "timestamp": "2025-10-27T20:22:50.188862",
+      "type": "build",
+      "data": {
+        "player_id": 1,
+        "building_type": "settlement",
+        "position": [
+          0,
+          -1,
+          5
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-10-27T20:22:54.719227",
+      "type": "turn_end",
+      "data": {
+        "player_id": 1,
+        "round_number": 0
+      }
+    },
+    {
+      "timestamp": "2025-10-27T20:22:56.878520",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          -1,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-10-27T20:22:59.299993",
+      "type": "turn_end",
+      "data": {
+        "player_id": 2,
+        "round_number": 0
+      }
+    },
+    {
+      "timestamp": "2025-10-27T20:23:02.876327",
+      "type": "build",
+      "data": {
+        "player_id": 3,
+        "building_type": "settlement",
+        "position": [
+          1,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-10-27T20:23:05.619386",
+      "type": "turn_end",
+      "data": {
+        "player_id": 3,
+        "round_number": 0
+      }
+    },
+    {
+      "timestamp": "2025-10-27T20:23:09.662332",
+      "type": "build",
+      "data": {
+        "player_id": 4,
+        "building_type": "settlement",
+        "position": [
+          0,
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-10-27T20:23:10.921745",
+      "type": "turn_end",
+      "data": {
+        "player_id": 4,
+        "round_number": 0
+      }
+    },
+    {
+      "timestamp": "2025-10-27T20:23:14.530983",
+      "type": "turn_end",
+      "data": {
+        "player_id": 4,
+        "round_number": 0
+      }
+    },
+    {
+      "timestamp": "2025-10-27T20:23:19.727255",
+      "type": "turn_end",
+      "data": {
+        "player_id": 4,
+        "round_number": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,988 @@
+{
+  "game_id": "03859b75-e68f-4613-abea-329152c71778",
+  "events": [
+    {
+      "timestamp": "2025-11-03T17:56:33.140121",
+      "type": "game_start",
+      "data": {
+        "players": [
+          {
+            "player_id": 1,
+            "name": "玩家1",
+            "color": "#ef4444",
+            "is_ai": false,
+            "resources": {
+              "wood": 4,
+              "brick": 4,
+              "sheep": 2,
+              "wheat": 2,
+              "ore": 2
+            },
+            "resource_count": 14,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          },
+          {
+            "player_id": 2,
+            "name": "玩家2",
+            "color": "#3b82f6",
+            "is_ai": false,
+            "resources": {
+              "wood": 4,
+              "brick": 4,
+              "sheep": 2,
+              "wheat": 2,
+              "ore": 2
+            },
+            "resource_count": 14,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          },
+          {
+            "player_id": 3,
+            "name": "AI对手1",
+            "color": "#10b981",
+            "is_ai": true,
+            "resources": {
+              "wood": 4,
+              "brick": 4,
+              "sheep": 2,
+              "wheat": 2,
+              "ore": 2
+            },
+            "resource_count": 14,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          },
+          {
+            "player_id": 4,
+            "name": "AI对手2",
+            "color": "#f59e0b",
+            "is_ai": true,
+            "resources": {
+              "wood": 4,
+              "brick": 4,
+              "sheep": 2,
+              "wheat": 2,
+              "ore": 2
+            },
+            "resource_count": 14,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          }
+        ],
+        "map_seed": 0
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:39.647097",
+      "type": "player_toggle_ai",
+      "data": {
+        "player_id": 2,
+        "is_ai": true
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:40.750521",
+      "type": "turn_end",
+      "data": {
+        "player_id": 1,
+        "round_number": 1
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:42.148036",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 1,
+        "dice2": 1,
+        "total": 2
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:42.150006",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:43.760983",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 3,
+        "dice2": 5,
+        "total": 8
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:43.765043",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:45.711005",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 2,
+        "dice2": 2,
+        "total": 4
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:45.713206",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:47.696444",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 5,
+        "dice2": 2,
+        "total": 7
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:47.698899",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:49.314400",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 4,
+        "dice2": 5,
+        "total": 9
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:49.316622",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:51.601617",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 5,
+        "dice2": 6,
+        "total": 11
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:51.604264",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:53.622160",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 4,
+        "dice2": 2,
+        "total": 6
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:53.625144",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:55.281127",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 1,
+        "dice2": 2,
+        "total": 3
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:55.283991",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:57.611814",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 4,
+        "dice2": 6,
+        "total": 10
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:57.614286",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:59.610336",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 6,
+        "dice2": 1,
+        "total": 7
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:56:59.612928",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:01.284396",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 3,
+        "dice2": 5,
+        "total": 8
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:01.287352",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:03.591306",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 6,
+        "dice2": 6,
+        "total": 12
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:03.594695",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:05.526770",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 1,
+        "dice2": 2,
+        "total": 3
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:05.529397",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:07.145291",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 3,
+        "dice2": 4,
+        "total": 7
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:07.147809",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:09.127325",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 3,
+        "dice2": 2,
+        "total": 5
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:09.130248",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:11.090160",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 6,
+        "dice2": 2,
+        "total": 8
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:11.093898",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:12.687774",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 4,
+        "dice2": 6,
+        "total": 10
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:12.690971",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:14.676894",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 6,
+        "dice2": 6,
+        "total": 12
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:14.681951",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:16.605464",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 4,
+        "dice2": 2,
+        "total": 6
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:16.609903",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:18.287966",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 3,
+        "dice2": 3,
+        "total": 6
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:18.292282",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:20.599798",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 5,
+        "dice2": 6,
+        "total": 11
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:20.603546",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:22.599925",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 6,
+        "dice2": 1,
+        "total": 7
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:22.604122",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:24.291052",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 5,
+        "dice2": 2,
+        "total": 7
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:24.295472",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:26.605546",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 2,
+        "dice2": 5,
+        "total": 7
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:26.610235",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:28.622118",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 1,
+        "dice2": 6,
+        "total": 7
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:28.629504",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:30.279543",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 6,
+        "dice2": 1,
+        "total": 7
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:30.284461",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:32.654415",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 4,
+        "dice2": 3,
+        "total": 7
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:32.659444",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:34.720644",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 6,
+        "dice2": 4,
+        "total": 10
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:34.724885",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:37.301139",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 1,
+        "dice2": 5,
+        "total": 6
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:37.307894",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:39.605193",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 6,
+        "dice2": 6,
+        "total": 12
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:39.610167",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:41.624140",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 3,
+        "dice2": 6,
+        "total": 9
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:41.627890",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:44.291461",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 3,
+        "dice2": 5,
+        "total": 8
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:44.296020",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:46.597201",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 5,
+        "dice2": 2,
+        "total": 7
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:46.606324",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:49.253563",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 5,
+        "dice2": 1,
+        "total": 6
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:49.259562",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:50.887398",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 3,
+        "dice2": 4,
+        "total": 7
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:50.895764",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:53.589742",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 3,
+        "dice2": 1,
+        "total": 4
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:53.593408",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:55.610964",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 6,
+        "dice2": 5,
+        "total": 11
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:55.615170",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:57.598275",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 2,
+        "dice1": 1,
+        "dice2": 2,
+        "total": 3
+      }
+    },
+    {
+      "timestamp": "2025-11-03T17:57:57.603214",
+      "type": "build",
+      "data": {
+        "player_id": 2,
+        "building_type": "settlement",
+        "position": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ]
+}

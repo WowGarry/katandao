@@ -1,0 +1,64 @@
+{
+  "game_id": "b1a849f4-e852-4543-a4b1-48034bef5ea1",
+  "events": [
+    {
+      "timestamp": "2025-10-27T20:48:29.522147",
+      "type": "game_start",
+      "data": {
+        "players": [
+          {
+            "player_id": 1,
+            "name": "你",
+            "color": "#ef4444",
+            "resources": {
+              "wood": 4,
+              "brick": 4,
+              "sheep": 2,
+              "wheat": 2,
+              "ore": 2
+            },
+            "resource_count": 14,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          },
+          {
+            "player_id": 2,
+            "name": "AI对手",
+            "color": "#3b82f6",
+            "resources": {
+              "wood": 4,
+              "brick": 4,
+              "sheep": 2,
+              "wheat": 2,
+              "ore": 2
+            },
+            "resource_count": 14,
+            "buildings": [],
+            "victory_points": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false
+          }
+        ],
+        "map_seed": 0
+      }
+    },
+    {
+      "timestamp": "2025-10-27T20:48:34.078687",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 1,
+        "dice1": 3,
+        "dice2": 5,
+        "total": 8
+      }
+    }
+  ]
+}
