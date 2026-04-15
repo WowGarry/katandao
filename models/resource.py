@@ -44,8 +44,9 @@ class Resources:
     
     def add(self, resource_type: ResourceType, amount: int = 1):
         """添加资源"""
-        if resource_type != ResourceType.DESERT:
-            self.resources[resource_type] += amount
+        if resource_type == ResourceType.DESERT:
+            return
+        self.resources[resource_type] += amount
     
     def remove(self, resource_type: ResourceType, amount: int = 1) -> bool:
         """移除资源，返回是否成功"""
@@ -59,9 +60,10 @@ class Resources:
     def has(self, resource_dict: Dict[ResourceType, int]) -> bool:
         """检查是否有足够的资源"""
         for resource_type, amount in resource_dict.items():
-            if resource_type != ResourceType.DESERT:
-                if self.resources[resource_type] < amount:
-                    return False
+            if resource_type == ResourceType.DESERT:
+                continue
+            if self.resources[resource_type] < amount:
+                return False
         return True
     
     def get(self, resource_type: ResourceType) -> int:

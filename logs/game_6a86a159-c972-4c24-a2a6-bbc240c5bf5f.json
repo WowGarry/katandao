@@ -1,0 +1,132 @@
+{
+  "game_id": "6a86a159-c972-4c24-a2a6-bbc240c5bf5f",
+  "events": [
+    {
+      "timestamp": "2026-04-14T12:55:56.370161",
+      "type": "game_start",
+      "data": {
+        "players": [
+          {
+            "player_id": 1,
+            "name": "玩家 1",
+            "color": "#ef4444",
+            "is_ai": false,
+            "resources": {
+              "wood": 0,
+              "brick": 0,
+              "sheep": 0,
+              "wheat": 0,
+              "ore": 0
+            },
+            "resource_count": 0,
+            "buildings": [],
+            "victory_points": 0,
+            "victory_points_full": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false,
+            "development_cards": [],
+            "knights_played": 0,
+            "hidden_victory_points": 0
+          },
+          {
+            "player_id": 2,
+            "name": "玩家 2",
+            "color": "#3b82f6",
+            "is_ai": false,
+            "resources": {
+              "wood": 0,
+              "brick": 0,
+              "sheep": 0,
+              "wheat": 0,
+              "ore": 0
+            },
+            "resource_count": 0,
+            "buildings": [],
+            "victory_points": 0,
+            "victory_points_full": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false,
+            "development_cards": [],
+            "knights_played": 0,
+            "hidden_victory_points": 0
+          },
+          {
+            "player_id": 3,
+            "name": "AI 对手 1",
+            "color": "#10b981",
+            "is_ai": true,
+            "resources": {
+              "wood": 0,
+              "brick": 0,
+              "sheep": 0,
+              "wheat": 0,
+              "ore": 0
+            },
+            "resource_count": 0,
+            "buildings": [],
+            "victory_points": 0,
+            "victory_points_full": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false,
+            "development_cards": [],
+            "knights_played": 0,
+            "hidden_victory_points": 0
+          },
+          {
+            "player_id": 4,
+            "name": "AI 对手 2",
+            "color": "#f59e0b",
+            "is_ai": true,
+            "resources": {
+              "wood": 0,
+              "brick": 0,
+              "sheep": 0,
+              "wheat": 0,
+              "ore": 0
+            },
+            "resource_count": 0,
+            "buildings": [],
+            "victory_points": 0,
+            "victory_points_full": 0,
+            "roads_left": 15,
+            "settlements_left": 5,
+            "cities_left": 4,
+            "has_longest_road": false,
+            "has_largest_army": false,
+            "development_cards": [],
+            "knights_played": 0,
+            "hidden_victory_points": 0
+          }
+        ],
+        "map_seed": 0
+      }
+    },
+    {
+      "timestamp": "2026-04-14T12:56:06.194922",
+      "type": "dice_roll",
+      "data": {
+        "player_id": 1,
+        "dice1": 4,
+        "dice2": 6,
+        "total": 10
+      }
+    },
+    {
+      "timestamp": "2026-04-14T13:13:46.440577",
+      "type": "turn_end",
+      "data": {
+        "player_id": 1,
+        "round_number": 1
+      }
+    }
+  ]
+}

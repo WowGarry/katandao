@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>卡坦岛 - 详细游戏规则</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f0e7;
+            font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            color: #2c2418;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: #fffef7;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            border: 1px solid #e6d9c8;
+        }
+
+        /* 页眉 */
+        .header {
+            background: #2d6a4f;
+            color: white;
+            padding: 2rem 2rem 1.5rem;
+            text-align: center;
+            border-bottom: 8px solid #f4a261;
+        }
+
+        .header h1 {
+            font-size: 2.6rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-shadow: 2px 2px 0 #1b4d3a;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .sub {
+            background: #e9f5e9;
+            padding: 0.6rem;
+            text-align: center;
+            font-weight: 500;
+            color: #2c553c;
+            border-bottom: 1px solid #cfe3cf;
+            font-size: 0.9rem;
+        }
+
+        /* 主要内容 */
+        .rules-content {
+            padding: 2rem 2rem 2.5rem;
+        }
+
+        /* 章节卡片样式 */
+        .section {
+            background: #ffffff;
+            border-left: 8px solid #f4a261;
+            margin-bottom: 2.2rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.1s ease;
+            overflow: hidden;
+        }
+
+        .section-title {
+            background: #fef3e4;
+            padding: 1rem 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #b45f2b;
+            border-bottom: 2px solid #f4a261;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title span {
+            background: #f4a261;
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .section-content {
+            padding: 1.2rem 1.8rem 1.8rem;
+        }
+
+        /* 表格样式 */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0 0.5rem;
+            background: #fefaf5;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .info-table th, .info-table td {
+            border: 1px solid #e9dfd1;
+            padding: 0.7rem 1rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .info-table th {
+            background: #e9d9c9;
+            font-weight: 700;
+            color: #4a3520;
+            width: 30%;
+        }
+
+        .resource-badge {
+            display: inline-block;
+            background: #f0e2d0;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 0.1rem 0.2rem;
+        }
+
+        .highlight {
+            background: #fdebd0;
+            font-weight: 600;
+            padding: 0.1rem 0.3rem;
+            border-radius: 8px;
+        }
+
+        .rule-list {
+            padding-left: 1.5rem;
+            margin: 0.8rem 0;
+        }
+
+        .rule-list li {
+            margin: 0.6rem 0;
+        }
+
+        .grid-2col {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .card-info {
+            background: #faf6ef;
+            border-radius: 1rem;
+            padding: 0.8rem 1.2rem;
+            flex: 1;
+            min-width: 180px;
+            border: 1px solid #e7dccf;
+        }
+
+        .badge {
+            background: #2d6a4f;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-right: 0.4rem;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border: 0;
+            height: 1px;
+            background: #e0d4c4;
+        }
+
+        .phase-step {
+            background: #f7f2ea;
+            border-radius: 1rem;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .phase-title {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #b45f2b;
+            border-left: 4px solid #f4a261;
+            padding-left: 0.8rem;
+            margin-bottom: 0.6rem;
+        }
+
+        footer {
+            background: #f0e7db;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.8rem;
+            color: #6b5a48;
+            border-top: 1px solid #ddd0be;
+        }
+
+        @media (max-width: 680px) {
+            .rules-content {
+                padding: 1rem;
+            }
+            .section-content {
+                padding: 0.8rem 1rem 1.2rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .info-table th, .info-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>🏝️ 卡坦岛 · 拓荒者法典</h1>
+        <p>完整核心规则 | 定居、贸易、发展、荣耀</p>
+    </div>
+    <div class="sub">
+        ⚓ 基于基础版规则整理 · 适用于2~4人游戏 · 胜利条件：最先获得10分
+    </div>
+
+    <div class="rules-content">
+        <!-- 一、游戏概述 -->
+        <div class="section">
+            <div class="section-title">
+                <span>1</span> 游戏概述与组件
+            </div>
+            <div class="section-content">
+                <p><strong>《卡坦岛》</strong> 是一款经典德式策略游戏。玩家扮演拓荒者，在卡坦岛上建造定居点、城市和道路，通过资源收集、交易与发展获取胜利点。最先获得<strong class="highlight">10分</strong>者获胜。</p>
+                <table class="info-table">
+                    <tr><th>地形板块（19块）</th><td>🌲森林(木材4) · 🐑牧场(羊毛4) · 🌾农田(粮食4) · 🧱山丘(砖3) · ⛰️矿山(矿石3) · 🏜️沙漠(无产出1)</td></tr>
+                    <tr><th>数字筹码</th><td>标记2~12，红点高概率(6/8)，沙漠无数字。决定资源产出轮次。</td></tr>
+                    <tr><th>港口板块</th><td>3:1通用港(8个)</td></tr>
+                    <tr><th>玩家组件/人</th><td>🚧道路15条 · 🏠定居点5个 · 🏙️城市4个 · 对应资源卡</td></tr>
+                    <tr><th>发展卡(25张)</th><td>⚔️骑士卡14张 · ✨进步卡5张 · 👑胜利点卡5张 · 另含最长道路卡/最大军队卡标记物</td></tr>
+                </table>
+                <p>其他配件：盗贼棋子1枚，骰子2颗，特殊计分标记物。</p>
+            </div>
+        </div>
+
+        <!-- 二、初始设置（详细步骤） -->
+        <div class="section">
+            <div class="section-title">
+                <span>2</span> 初始设置 & 反向轮选法
+            </div>
+            <div class="section-content">
+                <div class="phase-step">
+                    <div class="phase-title">🗺️ 地图构建</div>
+                    <ul class="rule-list">
+                        <li>随机放置19块地形（或使用推荐布局），沙漠宜放中央或边缘。</li>
+                        <li>外围嵌合港口板块，港口与相邻地形边沿对齐。</li>
+                        <li>在非沙漠地形上随机放置数字筹码（按字母顺序A~P），建议红点数字(6,8)不紧邻以维持平衡。</li>
+                    </ul>
+                </div>
+                <div class="phase-step">
+                    <div class="phase-title">🏕️ 起始定居点与道路放置（反向轮选法）</div>
+                    <ul class="rule-list">
+                        <li><strong>第一轮（顺时针）</strong>：每位玩家放置<strong>1个定居点</strong>在任意地形角点，并紧接着放置<strong>1条相邻道路</strong>。</li>
+                        <li><strong>第二轮（逆时针）</strong>：按相反顺序，每位玩家放置<strong>第二个定居点</strong>及另一条相邻道路。</li>
+                        <li><strong>起始资源获取</strong>：在第二个定居点放置后，立即获得该定居点相邻三个地形对应的资源各1张（若邻沙漠则无资源）。</li>
+                        <li>⚠️ 距离规则：定居点之间必须间隔至少2条边（不能放在相邻角点）。</li>
+                    </ul>
+                </div>
+                <p>💡 <em>注：起始玩家通常由掷骰最高者担任，先手放置第一定居点，后手在逆序轮获得补偿优势。</em></p>
+            </div>
+        </div>
+
+        <!-- 三、详细回合流程（掷骰、交易、建造） -->
+        <div class="section">
+            <div class="section-title">
+                <span>3</span> 回合流程 · 资源 · 发展
+            </div>
+            <div class="section-content">
+                <div class="phase-step">
+                    <div class="phase-title">🎲 阶段1：掷骰 & 资源产出</div>
+                    <p>掷2颗骰子，点数总和对应数字筹码的地形。所有在该地形相邻拥有<strong>定居点/城市</strong>的玩家获得资源：</p>
+                    <ul class="rule-list">
+                        <li>每个<strong>定居点</strong>：获得1张对应资源。</li>
+                        <li>每个<strong>城市</strong>：获得2张对应资源。</li>
+                    </ul>
+                    <p><span class="badge">特殊：掷出7</span> → 无人获得资源 → 所有手牌>7的玩家弃一半（向下取整）→ 掷骰玩家移动盗贼到任意新地形（不可原地）→ 并从该地形相邻的任一玩家手牌中<strong>随机偷取1张资源</strong>。盗贼所在格子停止生产直至被移走。</p>
+                </div>
+
+                <div class="phase-step">
+                    <div class="phase-title">🤝 阶段2：交易阶段</div>
+                    <ul class="rule-list">
+                        <li><strong>与银行交易</strong>：标准汇率4:1（4张相同资源换1张任意资源）。</li>
+                        <li><strong>港口兑换</strong>：若定居点/城市邻接港口板块，可使用3:1通用港（3同换1任意）</li>
+                        <li><strong>玩家间交易</strong>：当前回合玩家可主动发起交易，其他玩家自由协商（资源任意组合）。非回合玩家之间禁止交易。</li>
+                    </ul>
+                </div>
+
+                <div class="phase-step">
+                    <div class="phase-title">🏗️ 阶段3：建造与发展</div>
+                    <p>消耗资源建造以下项目（顺序不限，资源足够可多次建造）：</p>
+                    <table class="info-table">
+                        <thead>
+                            <tr><th>建筑</th><th>资源成本</th><th>效果/限制</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>🛣️ 道路</td><td>🧱砖 + 🌲木</td><td>沿边线建造，必须连接已有道路/定居点。最长道路争夺需连续无分支。</td></tr>
+                            <tr><td>🏠 定居点</td><td>🧱砖+🌲木+🐑羊毛+🌾粮</td><td>放置于角点，遵守距离规则（与其他建筑至少隔2条边），立即+1分。</td></tr>
+                            <tr><td>🏙️ 城市</td><td>🌾粮×2 + ⛰️矿石×3</td><td>升级现有定居点，产量翻倍，再+1分（原定居点计分替换，共2分）。</td></tr>
+                            <tr><td>📜 发展卡</td><td>🐑羊毛+🌾粮+⛰️矿石</td><td>抽一张发展卡，本回合不能使用（胜利点卡永久隐藏），每回合限购1张。</td></tr>
+                        </tbody>
+                    </table>
+                    <p><strong>发展卡详述</strong>：骑士卡（移动盗贼+偷资源，不触发弃牌）、进步卡（道路建设/垄断/发明等，立即生效）、胜利点卡（隐藏计分）。打出骑士卡计入“最大军队”计数。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 四、特殊计分：最长道路 & 最大军队 -->
+        <div class="section">
+            <div class="section-title">
+                <span>4</span> 特殊荣耀 · 最长道路 & 最大军队
+            </div>
+            <div class="section-content">
+                <div class="grid-2col">
+                    <div class="card-info">
+                        <h3 style="color:#2d6a4f;">🏆 最长道路</h3>
+                        <p>✔ 条件：拥有<strong>至少5条连续道路</strong>（不被定居点/城市中断、无分叉）且为全场最长。<br>
+                        ✔ 获得+2分，并持有“最长道路”卡。<br>
+                        ✔ 若其他玩家道路长度超过你，标记物立即转移（失去2分）。<br>
+                        ✔ 注意：被对手的定居点切断道路会导致中断。</p>
+                    </div>
+                    <div class="card-info">
+                        <h3 style="color:#b45f2b;">⚔️ 最大军队</h3>
+                        <p>✔ 条件：<strong>打出至少3张骑士卡</strong>，且数量多于其他任何玩家。<br>
+                        ✔ 获得+2分及“最大军队”卡。<br>
+                        ✔ 当有玩家打出骑士卡使数量领先时，标记物立即转移（原先持有者失去2分）。<br>
+                        ✔ 骑士卡效果也可用于移动盗贼及偷资源。</p>
+                    </div>
+                </div>
+                <p>📌 这两种特殊计分卡属于公共成就，在游戏中会不断易主，是重要的分数来源。</p>
+            </div>
+        </div>
+
+        <!-- 五、其他重要规则 & 建筑细化 -->
+        <div class="section">
+            <div class="section-title">
+                <span>5</span> 建筑规则细化 & 重要机制
+            </div>
+            <div class="section-content">
+                <ul class="rule-list">
+                    <li><strong>道路建造限制</strong>：只能建造在与已有道路、定居点或城市相邻的边线上，不能跨越或悬浮。</li>
+                    <li><strong>定居点距离规则（强制）</strong>：任何两个定居点/城市之间必须间隔<strong>至少两条边</strong>（即不能共用相邻顶点或同一条边）。该规则在初始放置和游戏中均适用。</li>
+                    <li><strong>城市升级</strong>：只能升级已有的定居点，升级后原定居点模型被城市替换，得分由1分变为2分（净增1分）。城市占据同样的角点，同样遵守距离规则。</li>
+                    <li><strong>港口使用权</strong>：只有你的定居点或城市占据港口板块的顶点时，才可使用对应港口的兑换率。若多个玩家共有同一港口顶点，均可使用。</li>
+                    <li><strong>资源枯竭</strong>：若银行某种资源卡耗尽，玩家无法继续获得该资源，直到有资源通过交易返回银行。</li>
+                    <li><strong>发展卡使用细节</strong>：购买的发展卡本回合不可使用（除特殊版本规则外）。打出骑士卡不计入“行动次数”，可随时在自己回合内发动。</li>
+                </ul>
+                <div class="phase-step" style="margin-top: 0.5rem;">
+                    <div class="phase-title">📦 手牌与盗贼补充</div>
+                    <p>手牌无上限（除了掷出7时的弃牌惩罚）。骑士卡及掷7移动盗贼时，若盗贼所在板块相邻没有其他玩家定居点/城市，则无法偷取资源（仅移动）。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 六、游戏结束与胜利判定 -->
+        <div class="section">
+            <div class="section-title">
+                <span>6</span> 胜利条件 · 加冕为卡坦之王
+            </div>
+            <div class="section-content">
+                <div style="background: #f0e5d8; padding: 1.2rem; border-radius: 1.5rem; text-align: center; margin-bottom: 0.8rem;">
+                    <p style="font-size: 1.6rem; font-weight: 800; color: #b25d1a;">🏅 10 分 即刻获胜 🏅</p>
+                    <p>当<strong>任意玩家回合结束时</strong>，其公开+隐藏（胜利点卡）的总分数达到或超过10分，游戏立即结束，该玩家获胜。</p>
+                </div>
+                <ul class="rule-list">
+                    <li>计分来源：每个定居点1分，每个城市2分，最长道路+2分，最大军队+2分，以及隐藏的胜利点发展卡（每张1分）。</li>
+                    <li>若同一回合多人达到10分（理论极少），当前回合玩家优先获胜。</li>
+                    <li>胜利点发展卡在游戏结束前一直隐藏，避免提前暴露战略意图。</li>
+                </ul>
+                <hr>
+                <p><strong>💡 游戏小贴士</strong>：早期优先抢占砖木资源，控制高概率数字（6/8），灵活利用港口达成高效兑换，同时留意盗贼的威胁。骑士卡不仅用于抢军队分，还能保护手牌过多的风险。</p>
+            </div>
+        </div>
+
+        <!-- 完整规则附注 (不含第七、第八变体，仅保留核心内容) -->
+        <div style="margin-top: 1rem; font-size: 0.85rem; background: #faf3e9; padding: 0.8rem 1.2rem; border-radius: 1rem; text-align: center; color: #6b5a48;">
+            📖 本页面包含卡坦岛基础版规则的第1~6章节核心内容：概述组件、初始设置、回合流程、特殊计分、建筑细化及胜利条件。  
+            <br>不含变体规则及可选扩展（如友好盗贼、起始资源平衡等），专注标准官方规则。
+        </div>
+    </div>
+    <footer>
+        🎲 卡坦岛 —— 策略、谈判与运气的盛宴 | 规则整理依据官方中文版 | 愿你成为最伟大的拓荒者
+    </footer>
+</div>
+</body>
+</html>

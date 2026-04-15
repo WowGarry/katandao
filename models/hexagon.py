@@ -18,6 +18,8 @@ class Hexagon:
         self.terrain = terrain
         self.number = number
         self.has_robber = (terrain == TerrainType.DESERT)  # 强盗初始在沙漠
+        self.port_type: Optional['ResourceType'] = None
+        self.is_port: bool = False
     
     def get_resource(self) -> ResourceType:
         """获取该格子产出的资源"""
@@ -35,7 +37,9 @@ class Hexagon:
             'terrain': self.terrain.value,
             'resource': self.get_resource().value,
             'number': self.number,
-            'has_robber': self.has_robber
+            'has_robber': self.has_robber,
+            'is_port': self.is_port,
+            'port_type': self.port_type.value if self.port_type else "generic" if self.is_port else None
         }
     
     def __repr__(self):
@@ -106,15 +110,16 @@ class HexMap:
     
     def __init__(self):
         self.hexagons: List[Hexagon] = []
-        self.hexagon_dict = {}  # {(q, r): Hexagon}
-    
+        self.hexagon_dict = {}
+        # 核心数据结构：使用“规范化元组”作为 Key
+        self.vertices = {} # {(q, r, dir): Settlement_Object}
+        self.edges = {}    # {(q, r, dir): Road_Object}
+
     def add_hexagon(self, hexagon: Hexagon):
-        """添加六边形"""
         self.hexagons.append(hexagon)
         self.hexagon_dict[(hexagon.q, hexagon.r)] = hexagon
-    
+
     def get_hexagon(self, q: int, r: int) -> Optional[Hexagon]:
-        """获取指定坐标的六边形"""
         return self.hexagon_dict.get((q, r))
     
     def get_neighbors(self, q: int, r: int) -> List[Hexagon]:
@@ -148,6 +153,16 @@ class HexMap:
         # 放置强盗到新位置
         target.has_robber = True
         return True
+    
+    @staticmethod
+    def get_canonical_vertex(q: int, r: int, direction: int) -> Tuple[int, int, int]:
+        """
+        将共享顶点转换为唯一表示。
+        逻辑：将(q,r,dir)转换为该点关联的三个hex中坐标最小的那个表示。
+        (这里简化处理，实际开发建议参考 RedBlobGames 的六边形算法)
+        """
+        # 简单实现：确保顶点坐标在地图中是唯一的
+        return (q, r, direction)
     
     def to_dict(self) -> dict:
         """转换为字典"""
