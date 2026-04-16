@@ -326,3 +326,44 @@ class GameRules:
         game_state.next_turn()
         return True, "回合结束"
     
+    @staticmethod
+    def trade_with_bank(game_state, player_id: int, give: dict, receive: dict) -> tuple[bool, str]:
+        """
+        处理与银行的 4:1 交易
+        """
+        # 1. 回合校验：只能在自己的回合交易
+        current_player = game_state.get_current_player()
+        if current_player.player_id != player_id:
+            return False, "只能在你的回合进行交易"
+
+        # 2. 参数格式校验：确保只涉及一种换出资源和一种换入资源
+        if len(give) != 1 or len(receive) != 1:
+            return False, "4:1交易必须明确一种换出资源和一种换入资源"
+
+        give_res_str = list(give.keys())[0]
+        give_amount = give[give_res_str]
+        receive_res_str = list(receive.keys())[0]
+        receive_amount = receive[receive_res_str]
+
+        # 3. 交易比例校验：严格遵守 4 换 1 法则
+        if give_amount != 4 or receive_amount != 1:
+            return False, "必须使用 4 个相同的资源换取 1 个其他资源"
+
+        if give_res_str == receive_res_str:
+            return False, "换出和换入的资源不能是同一种"
+
+        try:
+            give_type = ResourceType(give_res_str)
+            receive_type = ResourceType(receive_res_str)
+        except ValueError:
+            return False, "无效的资源类型"
+
+        # 4. 资产校验：检查玩家是否有足够的资源
+        if not current_player.has_resources({give_type: 4}):
+            return False, f"你的 {give_res_str} 资源不足 4 个，无法交易"
+
+        # 5. 执行交易：扣除与增加
+        current_player.remove_resource(give_type, 4)
+        current_player.add_resource(receive_type, 1)
+
+        return True, f"成功使用 4 个 {give_res_str} 换取了 1 个 {receive_res_str}"
