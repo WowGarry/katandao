@@ -139,6 +139,29 @@ class HexMap:
     def get_hexagons_by_number(self, number: int) -> List[Hexagon]:
         """获取指定点数的所有六边形"""
         return [h for h in self.hexagons if h.number == number]
+
+    def get_hexagons_by_vertex(self, q: int, r: int, direction: int) -> List[Hexagon]:
+        """获取与指定顶点相邻的所有六边形"""
+        positions = [(q, r)]
+        if direction == 0:
+            positions.extend([(q, r - 1), (q + 1, r - 1)])
+        elif direction == 1:
+            positions.extend([(q + 1, r - 1), (q + 1, r)])
+        elif direction == 2:
+            positions.extend([(q + 1, r), (q, r + 1)])
+        elif direction == 3:
+            positions.extend([(q, r + 1), (q - 1, r + 1)])
+        elif direction == 4:
+            positions.extend([(q - 1, r + 1), (q - 1, r)])
+        elif direction == 5:
+            positions.extend([(q - 1, r), (q, r - 1)])
+        
+        hexes = []
+        for px, py in positions:
+            hexagon = self.get_hexagon(px, py)
+            if hexagon:
+                hexes.append(hexagon)
+        return hexes
     
     def move_robber(self, q: int, r: int) -> bool:
         """移动强盗到指定位置"""

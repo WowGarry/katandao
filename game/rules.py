@@ -57,14 +57,18 @@ class GameRules:
         """
         player = game_state.get_player(player_id)
         if not player:
+            print(f"[DEBUG][Game {getattr(game_state,'game_id',None)}] build -> player not found: {player_id}")
             return False, "玩家不存在"
         
         # 检查是否是当前玩家
-        if game_state.get_current_player().player_id != player_id:
+        current = game_state.get_current_player().player_id
+        if current != player_id:
+            print(f"[DEBUG][Game {getattr(game_state,'game_id',None)}] build -> not current player: current={current}, request={player_id}")
             return False, "不是你的回合"
         
         # 检查阶段 - 允许在SETUP、TRADE、BUILD阶段建造
         if game_state.phase not in [GamePhase.SETUP, GamePhase.TRADE, GamePhase.BUILD]:
+            print(f"[DEBUG][Game {getattr(game_state,'game_id',None)}] build -> invalid phase: {game_state.phase}")
             return False, f"当前阶段不能建造: {game_state.phase}"
         
         # 获取建筑成本
@@ -73,12 +77,15 @@ class GameRules:
         # 设置阶段免费建造
         if game_state.phase != GamePhase.SETUP:
             if not player.has_resources(cost):
+                print(f"[DEBUG][Game {getattr(game_state,'game_id',None)}] build -> insufficient resources for player {player_id}, cost={cost}")
                 return False, "资源不足"
         
         # 根据建筑类型放置
         if building_type == BuildingType.SETTLEMENT:
             vertex = HexVertex(*position)
+            print(f"[DEBUG][Game {getattr(game_state,'game_id',None)}] build -> attempting to place settlement for player {player_id} at {vertex.to_tuple()}")
             if not game_state.place_settlement(vertex, player_id):
+                print(f"[DEBUG][Game {getattr(game_state,'game_id',None)}] build -> place_settlement returned False")
                 return False, "无法在此位置放置村庄"
             
         elif building_type == BuildingType.CITY:
@@ -90,9 +97,13 @@ class GameRules:
             edge = HexEdge(*position)
             if not game_state.place_road(edge, player_id):
                 return False, "无法在此位置放置道路"
+            if game_state.phase == GamePhase.SETUP:
+                # 当前玩家在设置阶段放置道路后，进入下一个玩家
+                game_state.next_turn()
         
         # 扣除资源（非设置阶段）
         if game_state.phase != GamePhase.SETUP:
+            print(f"[DEBUG][Game {getattr(game_state,'game_id',None)}] build -> charging resources for player {player_id}, cost={cost}")
             player.pay_resources(cost)
         
         return True, f"成功建造{building_type.value}"

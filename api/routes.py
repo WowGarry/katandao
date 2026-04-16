@@ -5,6 +5,7 @@ from game.game_state import GameState, GamePhase
 from game.map_generator import MapGenerator
 from game.rules import GameRules
 from referee.player_interface import BasicPlayer
+from referee.smart_player import SmartPlayer
 from models.player import Player
 from models.hexagon import HexVertex, HexEdge
 from models.building import BuildingType
@@ -51,21 +52,8 @@ def create_game():
             game_state.hex_map = MapGenerator.generate_standard_map(seed)
         
         # Progression to Gameplay Phase
-        game_state.phase = GamePhase.ROLL_DICE
-        game_state.round_number = 1
-        
-        # Bootstrap players with starting resources
-        initial_resources = {
-            ResourceType.WOOD: 4, 
-            ResourceType.BRICK: 4,
-            ResourceType.SHEEP: 2, 
-            ResourceType.WHEAT: 2, 
-            ResourceType.ORE: 2
-        }
-        
-        for player in game_state.players:
-            for res_type, amount in initial_resources.items():
-                player.add_resource(res_type, amount)
+        game_state.phase = GamePhase.SETUP
+        game_state.round_number = 0
         
         # Persist game and initialize logging
         games[game_id] = game_state
@@ -178,7 +166,9 @@ def build(game_id):
         return jsonify({'success': False, 'error': '无效的建筑类型'}), 400
     
     # 执行建造
+    print(f"[DEBUG][API] /game/{game_id}/build called by player {player_id} for {building_type_str} at {position}, phase={game_state.phase}", flush=True)
     success, message = GameRules.build(game_state, player_id, building_type, position)
+    print(f"[DEBUG][API] /game/{game_id}/build result: success={success}, message={message}", flush=True)
     
     if success:
         # 记录日志
@@ -191,6 +181,17 @@ def build(game_id):
         'message': message,
         'game_state': game_state.to_dict() if success else None
     })
+
+@api_bp.route('/game/<game_id>/player/<int:player_id>/guide_hint', methods=['GET'])
+def get_guide_hint(game_id, player_id):
+    if game_id not in games:
+        return jsonify({'success': False, 'error': '游戏不存在'}), 404
+    game_state = games[game_id]
+    player = game_state.get_player(player_id)
+    if not player:
+        return jsonify({'success': False, 'error': '玩家不存在'}), 404
+    # 暂时返回无建议。
+    return jsonify({'success': True, 'hint': None})
 
 @api_bp.route('/game/<game_id>/trade/bank', methods=['POST'])
 def trade_bank(game_id):
@@ -392,16 +393,16 @@ def ai_turn(game_id, player_id):
     """
     print(f"=== 开始AI回合: 游戏 {game_id}, 玩家 {player_id} ===")
     
-    # 验证游戏和玩家
+    # 验证游戏和玩家 (需确保 games 字典在作用域内)
     if game_id not in games:
         return jsonify({'success': False, 'error': '游戏不存在'}), 404
-    
+        
     game_state = games[game_id]
     player = game_state.get_player(player_id)
     
     if not player or not getattr(player, 'is_ai', False):
         return jsonify({'success': False, 'error': '玩家不存在或不是AI玩家'}), 400
-    
+        
     # 获取策略类型
     request_data = request.get_json() or {}
     strategy_type = request_data.get('strategy_type', 'smart')
@@ -421,7 +422,7 @@ def ai_turn(game_id, player_id):
             
             if logger:
                 logger.log_dice_roll(player_id, dice1, dice2, total)
-            
+                
             GameRules.handle_dice_roll(game_state, total)
             
             actions.append({
@@ -432,13 +433,13 @@ def ai_turn(game_id, player_id):
             })
             dice_total = total
             print(f"掷骰子完成: {dice1}+{dice2}={total}")
-        
+            
         # 实例化AI玩家
         print("开始实例化AI玩家...")
         ai_player = None
         if strategy_type == 'smart':
             try:
-                from referee.smart_player import SmartPlayer
+                # 这里直接使用本文件下方清理好的 SmartPlayer
                 ai_player = SmartPlayer(player_id, player.name)
                 print(f"成功创建 SmartPlayer: {player.name}")
             except Exception as e:
@@ -447,16 +448,16 @@ def ai_turn(game_id, player_id):
                 ai_player = BasicPlayer(player_id)
                 print("回退到 BasicPlayer")
         else:
-            # 其他策略...
+            # 其他策略预留
             pass
-        
+            
         # 生成骰子反应发言
         if dice_total and hasattr(ai_player, '_generate_dice_reaction'):
             try:
                 ai_player._generate_dice_reaction(dice_total)
             except Exception as e:
                 print(f"生成骰子反应发言失败: {e}")
-        
+                
         # 获取建造决策
         print("获取建造决策...")
         try:
@@ -466,7 +467,7 @@ def ai_turn(game_id, player_id):
         except Exception as e:
             print(f"获取建造决策失败: {e}")
             build_decision = (None, None)
-        
+            
         # 处理建造决策
         build_success = False
         if build_decision and build_decision[0] is not None:
@@ -482,7 +483,7 @@ def ai_turn(game_id, player_id):
                     build_type = BuildingType.CITY
                 else:
                     raise ValueError(f"未知的建筑类型: {build_type_str}")
-                
+                    
                 build_result, build_message = GameRules.build(game_state, player_id, build_type, position)
                 actions.append({
                     'type': 'build',
@@ -495,30 +496,33 @@ def ai_turn(game_id, player_id):
                 if logger and build_result:
                     logger.log_build(player_id, build_type_str, position)
                     build_success = True
-                
-                print(f"建造结果: {build_result}, {build_message}")
                     
+                print(f"建造结果: {build_result}, {build_message}")
+                
             except Exception as e:
                 actions.append({
                     'type': 'build_error',
                     'error': f'建造失败: {str(e)}'
                 })
                 print(f"AI建造失败: {e}")
-        
+                
         # 交易决策
         if hasattr(ai_player, 'decide_trade'):
             try:
-                trade_decision, offer_give, offer_receive = ai_player.decide_trade(game_state_dict)
-                if trade_decision:
-                    actions.append({
-                        'type': 'trade_offer',
-                        'offer_give': offer_give,
-                        'offer_receive': offer_receive
-                    })
-                    print(f"交易提议: 给出{offer_give}, 请求{offer_receive}")
+                trade_result = ai_player.decide_trade(game_state_dict)
+                # 确保解包安全
+                if trade_result and len(trade_result) == 3:
+                    trade_decision, offer_give, offer_receive = trade_result
+                    if trade_decision:
+                        actions.append({
+                            'type': 'trade_offer',
+                            'offer_give': offer_give,
+                            'offer_receive': offer_receive
+                        })
+                        print(f"交易提议: 给出{offer_give}, 请求{offer_receive}")
             except Exception as e:
                 print(f"交易决策失败: {e}")
-        
+                
         # 结束回合
         print("结束回合...")
         success, message = GameRules.end_turn(game_state)
@@ -531,11 +535,13 @@ def ai_turn(game_id, player_id):
         if logger:
             round_number = getattr(game_state, 'round_number', 0)
             logger.log_turn_end(player_id, round_number)
-        
-        # 收集AI发言
-        if hasattr(ai_player, 'speech_count') and ai_player.speech_count > 0:
-            ai_speeches = getattr(ai_player, 'speeches', [])
-        
+            
+        # 收集AI发言 - 确保始终初始化，避免后续引用报错
+        ai_speeches = []
+        if hasattr(ai_player, 'speeches') and ai_player.speeches:
+            ai_speeches = ai_player.speeches
+            print(f"[AI发言] 收集到{len(ai_speeches)}条发言: {ai_speeches}")
+            
         # 返回响应
         response_data = {
             'success': True,
@@ -548,16 +554,15 @@ def ai_turn(game_id, player_id):
         }
         print(f"AI回合完成，返回成功响应")
         return jsonify(response_data)
-    
+        
     except Exception as e:
         import traceback
         error_details = traceback.format_exc()
-        print(f"AI执行错误详情: {error_details}")
+        print(f"AI执行错误详情:\n{error_details}")
         
         return jsonify({
             'success': False,
             'error': f'AI执行回合时发生错误: {str(e)}',
             'actions': actions
         }), 500
-
    

@@ -1,5 +1,9 @@
 import os
-from openai import OpenAI
+
+try:
+    from openai import OpenAI
+except ImportError:
+    OpenAI = None
 
 class LLMService:
     def __init__(self, api_key=None, model="deepseek-chat"):
@@ -14,7 +18,12 @@ class LLMService:
             api_key = os.getenv("DEEPSEEK_API_KEY")
             if not api_key:
                 raise ValueError("未提供DeepSeek API密钥且环境变量DEEPSEEK_API_KEY未设置")
-        
+
+        if OpenAI is None:
+            raise ImportError(
+                "缺少依赖 openai，请使用 `pip install openai` 或在测试环境中安装该包。"
+            )
+
         # 初始化 DeepSeek 客户端
         self.client = OpenAI(
             api_key=api_key,
